@@ -25,3 +25,33 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+
+## my memo  
+Angularではモジュールのエクスポートに `default` を使用してはいけない。
+
+#### 悪い例 ❌
+```my-module.ts:ts
+export default class MyModule {
+  ...
+}
+
+```
+
+```main.ts:ts
+import MyModule from './my-module.ts'
+
+```
+
+#### 良い例 ⭕️
+```my-module.ts:ts
+export class MyModule {
+  ...
+}
+
+```
+
+```main.ts:ts
+import { MyModule } from './my-module.ts'
+
+```

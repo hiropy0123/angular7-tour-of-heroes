@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import Hero from '../hero';
-import HEROES from '../mock-heroes';
+import { Hero } from '../hero';
+import { HeroService } from '../hero.service';
 
 @Component({
   selector: 'app-heroes',
@@ -9,7 +9,7 @@ import HEROES from '../mock-heroes';
 })
 export class HeroesComponent implements OnInit {
   // members
-  heroes = HEROES;
+  heroes: Hero[];
   selectedHero: Hero;
 
   // methods
@@ -17,9 +17,16 @@ export class HeroesComponent implements OnInit {
     this.selectedHero = hero;
   }
 
-  constructor() { }
+  // Inject Service
+  constructor(private heroService: HeroService) { }
+
+  getHeroes(): void {
+    this.heroService.getHeroes().subscribe(heroes => this.heroes = heroes);
+  }
 
   ngOnInit() {
+    // 初期化 初期データを取得する
+    this.getHeroes();
   }
 
 }

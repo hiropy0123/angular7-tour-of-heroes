@@ -1,5 +1,5 @@
 // Heroクラスの定義
-export default class Hero {
+export class Hero {
   id: number;
   name: string;
 }
