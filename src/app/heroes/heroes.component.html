@@ -9,19 +9,4 @@
   </li>
 </ul>
 
-
-<section *ngIf="selectedHero">
-    <h2>{{ selectedHero.name | uppercase }} details</h2>
-    <div>
-      <span>ID: </span> {{ selectedHero.id }}
-    </div>
-    <div>
-      <span>Name: </span> {{ selectedHero.name }}
-    </div>
-    
-    <div>
-      <label>name: 
-        <input [(ngModel)]="selectedHero.name" placeholder="name">
-      </label>
-    </div>
-</section>
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
