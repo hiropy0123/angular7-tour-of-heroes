@@ -28,7 +28,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 
 ## my memo  
-Angularではモジュールのエクスポートに `default` を使用してはいけない。
+Angularではモジュールのエクスポートに `default` を使用してはいけない。  
+（AoTコンパイルができなくなるため）
 
 #### 悪い例 ❌
 ```my-module.ts:ts
