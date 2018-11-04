@@ -12,10 +12,16 @@ export class HeroService {
   // Inject Service ( "service-in-service" )
   constructor(private messageService: MessageService) { }
 
-  // heroesの取得
+  // heroesの一覧取得
   getHeroes(): Observable<Hero[]> {
     // message
     this.messageService.add('HeroService: fetched heroes');
     return of(HEROES);
+  }
+
+  // Hero 個別の取得
+  getHero(id: number): Observable<Hero> {
+    this.messageService.add(`HeroService: fetched hero id=${id}`);
+    return of(HEROES.find(hero => hero.id === id));
   }
 }
